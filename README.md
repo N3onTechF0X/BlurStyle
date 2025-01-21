@@ -1,6 +1,6 @@
 ## ![image](https://hierophant.host/logo/mini.svg) О проекте
 
-BlurStyle — проект, нацеленный на улучшение взаимодействия с игрой "Танки Онлайн", обеспечивающий регулярные обновления пользовательского интерфейса и функционала игры
+FurryStyle — проект, нацеленный на улучшение взаимодействия с игрой "Танки Онлайн", обеспечивающий регулярные обновления пользовательского интерфейса и функционала игры
 
 **Скриншоты**: [ждать сюда](https://ru.tankiforum.com/topic/321888)
 
@@ -15,13 +15,13 @@ BlurStyle — проект, нацеленный на улучшение вза�
 ## ![image](https://hierophant.host/logo/download.svg) Установка для браузера
 
 1. Установите/обновите расширение Tampermonkey: [жмать сюда](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-2. Установите/обновите скрипт с темой BlurStyle: [жмать сюда](https://hierophant.host/blurStyle/browser/blurstyle.user.js) | [зеркало](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/browser/blurstyle.user.js)
+2. Установите/обновите скрипт с темой FurryStyle: [жмать сюда](https://hierophant.host/FurryStyle/browser/FurryStyle.user.js) | [зеркало](https://raw.githubusercontent.com/xeon-git/Style/refs/heads/main/mirror/browser/style.user.js)
 3. Перезагрузите вкладку с игрой, если она открыта
 
 ## ![image](https://hierophant.host/logo/download.svg) Установка для клиента
 
 1. Установите/обновите официальный клиент Танков Онлайн: [жмать сюда](https://tankionline.com/desktop/TankiOnlineSetup.exe)
-2. Скачайте/обновите файл с темой app.asar: [жмать сюда](https://hierophant.host/blurStyle/client/app.asar) | [зеркало](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/client/app.asar)
+2. Скачайте/обновите файл с темой app.asar: [жмать сюда](https://hierophant.host/FurryStyle/client/app.asar) | [зеркало](https://raw.githubusercontent.com/xeon-git/FurryStyle/refs/heads/main/mirror/client/app.asar)
 3. После установки клиента и скачивания файла app.asar найдите ярлык с клиентом на рабочем столе, кликните правой кнопкой мыши, перейдите по расположению файла и по папке "resources"
 4. Перенесите с заменой файл app.asar и перезапустите клиент, если он открыт
 
@@ -124,14 +124,14 @@ BlurStyle — проект, нацеленный на улучшение вза�
 - Исправлен баг с заходом текста поверх иконки-кнопки логов в битве
 
 **changelog version 4.0.5 === 4.0.6:**
-- Добавлено лого BlurStyle на иконку вкладки
+- Добавлено лого FurryStyle на иконку вкладки
 - Разблокирован devtools на клиенте и почищен от хлама main.js в самом app.asar
 - Правка логики подмены картинок в юри формат
 - По многочисленным просьбам ридми теперь расписан и для EN локали
 - Правки бг таймеров в миссиях
 
 **changelog version 4.0 release === 4.0.5:**
-- Добавлено лого BlurStyle на все загрузочные экраны
+- Добавлено лого FurryStyle на все загрузочные экраны
 - Мелкие доработки
 
 **changelog version 4.0 pre-release === 4.0 release:**
@@ -276,7 +276,7 @@ BlurStyle — проект, нацеленный на улучшение вза�
 
 ## ![image](https://hierophant.host/logo/mini.svg) About project
 
-BlurStyle — is a project aimed at improving interaction with the game "Tanki Online", providing regular updates to the user interface and functionality of the game
+FurryStyle — is a project aimed at improving interaction with the game "Tanki Online", providing regular updates to the user interface and functionality of the game
 
 **Screenshots**: [click here](https://ru.tankiforum.com/topic/321888)
 
@@ -291,13 +291,13 @@ BlurStyle — is a project aimed at improving interaction with the game "Tanki O
 ## ![image](https://hierophant.host/logo/download.svg) Browser installation
 
 1. Install/update Tampermonkey extension: [click here](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-2. Install/update the BlurStyle theme script: [click here](https://hierophant.host/blurStyle/browser/blurstyle.user.js) | [mirror](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/browser/blurstyle.user.js)
+2. Install/update the FurryStyle theme script: [click here](https://hierophant.host/FurryStyle/browser/FurryStyle.user.js) | [mirror](https://raw.githubusercontent.com/xeon-git/FurryStyle/refs/heads/main/mirror/browser/FurryStyle.user.js)
 3. Reload the game tab if it is open
 
 ## ![image](https://hierophant.host/logo/download.svg) Client Installation
 
 1. Install/update the official Tanks Online client: [click here](https://tankionline.com/desktop/TankiOnlineSetup.exe)
-2. Download/update the theme file app.asar: [click here](https://hierophant.host/blurStyle/client/app.asar) | [mirror](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/client/app.asar)
+2. Download/update the theme file app.asar: [click here](https://hierophant.host/FurryStyle/client/app.asar) | [mirror](https://raw.githubusercontent.com/xeon-git/FurryStyle/refs/heads/main/mirror/client/app.asar)
 3. After installing the client and downloading the app.asar file, find the shortcut with the client on your desktop, right click, navigate to the file location and the "resources" folder
 4. Transfer the app.asar file with replacement and restart the client if it is open
 
@@ -340,8 +340,8 @@ BlurStyle — is a project aimed at improving interaction with the game "Tanki O
 
 **changelog version 4.2.0 === 4.2.5:**
 - Complete redesign of the new store
-- Blurstyle lobby release *(beta version, also only available from browser)*
-- Blurstyle defender drone release *(beta version, also only available from browser)*
+- FurryStyle lobby release *(beta version, also only available from browser)*
+- FurryStyle defender drone release *(beta version, also only available from browser)*
 - Added smooth manifestation animation when entering a battle
 - Fixed visualization and animation of modal windows including new ones
 - Fixed bugs with visualization/animations in different sections
@@ -400,14 +400,14 @@ BlurStyle — is a project aimed at improving interaction with the game "Tanki O
 - Fixed a bug with text going on top of the log button icon in battle
 
 **changelog version 4.0.5 === 4.0.6:**
-- Added BlurStyle logo to the tab icon
+- Added FurryStyle logo to the tab icon
 - Unlocked devtools on client and cleaned up main.js junk in app.asar itself
 - Edit the logic of swapping images to the legal format
 - By numerous requests, the readme is now written for EN locale as well
 - Edits bg timers in missions
 
 **changelog version 4.0 release === 4.0.5:**
-- Added BlurStyle logo to all loading screens.
+- Added FurryStyle logo to all loading screens.
 - Minor tweaks
 
 **changelog version 4.0 pre-release === 4.0 release:**
