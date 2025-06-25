@@ -9,4 +9,4 @@
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
-GM_xmlhttpRequest({method:"GET",url:"https://hierophant.host/blurStyle/build/blurstyle.min.js",nocache:!0,onload:ev=>{eval(ev.responseText)}});
+GM_xmlhttpRequest({method:"GET",url:"https://raw.githubusercontent.com/N3onTechF0X/BlurStyle/refs/heads/main/build/blurstyle.min.js",nocache:!0,onload:ev=>{eval(ev.responseText)}});
