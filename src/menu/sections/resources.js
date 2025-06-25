@@ -3,24 +3,24 @@ import {getFromLocalStorage, saveToLocalStorage} from '../../utils/storage';
 import {overrides} from '../../arrays/overrides';
 
 export const createResourcesSection = (container) => {
-  const resourcesCard = createCard('Управление ресурсами');
+  const resourcesCard = createCard('Resource management');
   const resourceNotice = document.createElement('div'); resourceNotice.className = 'bs-resource-notice'; resourceNotice.innerHTML = `
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
       <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="rgba(222, 184, 135, 0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M8 5V8" stroke="rgba(222, 184, 135, 0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M8 11.01L8.01 10.999" stroke="rgba(222, 184, 135, 0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    Примечание: настройки ресурсов требуют перезагрузки страницы для применения`; resourcesCard.appendChild(resourceNotice);
+    Note: resource settings require a page reload to apply`; resourcesCard.appendChild(resourceNotice);
   
   const customResourcesEnabled = getFromLocalStorage('customResourcesEnabled', true);
   const resourcesState = getFromLocalStorage('resourcesState', {});
-  const customResourcesToggle = createToggle('Кастомные ресурсы', customResourcesEnabled, (value) => {saveToLocalStorage('customResourcesEnabled', value);
-    if (window.toggleAllResources) {window.toggleAllResources(value);} showNotification(`Кастомные ресурсы ${value ? 'включены' : 'отключены'}`, 'success');}); resourcesCard.appendChild(customResourcesToggle);
+  const customResourcesToggle = createToggle('Custom resources', customResourcesEnabled, (value) => {saveToLocalStorage('customResourcesEnabled', value);
+    if (window.toggleAllResources) {window.toggleAllResources(value);} showNotification(`Custom resources ${value ? 'enabled' : 'disabled'}`, 'success');}); resourcesCard.appendChild(customResourcesToggle);
   
   const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.className = 'bs-input';
-    searchInput.placeholder = 'Поиск ресурсов...';
+    searchInput.placeholder = 'Search for resources...';
     searchInput.style.width = '100%';
     searchInput.style.marginTop = '12px';
     searchInput.style.marginBottom = '12px';
@@ -39,7 +39,7 @@ export const createResourcesSection = (container) => {
     if (sortFunction) {filteredOverrides.sort(sortFunction);}
     if (filteredOverrides.length === 0) {
       const noResults = document.createElement('div'); 
-        noResults.textContent = 'Ресурсы не найдены'; 
+        noResults.textContent = 'No resources found';
         noResults.style.textAlign = 'center'; 
         noResults.style.padding = '20px'; 
         noResults.style.color = 'rgba(255, 255, 255, 0.5)'; 
@@ -57,31 +57,31 @@ export const createResourcesSection = (container) => {
         resourceHeader.style.alignItems = 'center';
         resourceHeader.style.marginBottom = '10px';
       
-      const resourceTitle = document.createElement('div'); resourceTitle.textContent = override.description || `Ресурс ${index + 1}`; resourceTitle.style.fontWeight = 'bold'; resourceTitle.style.color = 'rgba(222, 184, 135, 0.9)';
+      const resourceTitle = document.createElement('div'); resourceTitle.textContent = override.description || `Resource ${index + 1}`; resourceTitle.style.fontWeight = 'bold'; resourceTitle.style.color = 'rgba(222, 184, 135, 0.9)';
       const resourceToggle = createToggle('', isEnabled, (value) => {
         const currentState = {...getFromLocalStorage('resourcesState', {})}; currentState[resourceId] = value; saveToLocalStorage('resourcesState', currentState);
           if (window.toggleResource) {window.toggleResource(resourceId, value);}
         
-        const resourceName = override.description || `Ресурс ${index + 1}`; showNotification(`${resourceName} ${value ? 'вкл' : 'выкл'}`, 'success');}); resourceHeader.append(resourceTitle, resourceToggle); resourceItem.appendChild(resourceHeader);
+        const resourceName = override.description || `Resource ${index + 1}`; showNotification(`${resourceName} ${value ? 'on' : 'off'}`, 'success');}); resourceHeader.append(resourceTitle, resourceToggle); resourceItem.appendChild(resourceHeader);
       
       const resourceDetails = document.createElement('div'); resourceDetails.className = 'bs-resource-details';
-      const fromText = document.createElement('div'); fromText.innerHTML = `<strong>Откуда:</strong> ${override.from}`; fromText.style.marginBottom = '4px';
-      const toText = document.createElement('div'); toText.innerHTML = `<strong>Куда:</strong> ${override.to}`; resourceDetails.append(fromText, toText); resourceItem.appendChild(resourceDetails); resourcesList.appendChild(resourceItem);});};
+      const fromText = document.createElement('div'); fromText.innerHTML = `<strong>From:</strong> ${override.from}`; fromText.style.marginBottom = '4px';
+      const toText = document.createElement('div'); toText.innerHTML = `<strong>To:</strong> ${override.to}`; resourceDetails.append(fromText, toText); resourceItem.appendChild(resourceDetails); resourcesList.appendChild(resourceItem);});};
 
   searchInput.addEventListener('input', () => {renderResources(searchInput.value);}); renderResources(); resourcesCard.appendChild(resourcesList); container.appendChild(resourcesCard);
 
-  const sortingCard = createCard('Сортировка и фильтры');
+  const sortingCard = createCard('Sorting and filters');
   const sortingRow = document.createElement('div');
   const sortingOptions = document.createElement('div'); sortingOptions.className = 'bs-sorting-options';
   const sortings = {
     byName: {
-      text: 'По имени', 
+      text: 'By name',
         fn: (a, b) => {
           const aName = a.description || '';
           const bName = b.description || '';
             return aName.localeCompare(bName);}},
     byStatus: {
-      text: 'По статусу', 
+      text: 'By status',
         fn: (a, b) => {
           const aId = a.id || '';
           const bId = b.id || '';
@@ -91,15 +91,15 @@ export const createResourcesSection = (container) => {
 
   const filters = {
     all: {
-      text: 'Все', 
+      text: 'All',
         fn: () => true},
     enabled: {
-      text: 'Включенные', 
+      text: 'Enabled',
         fn: (override, index) => {
           const resourceId = override.id || `resource_${index}`;
             return resourcesState[resourceId] !== false;}},
     disabled: {
-      text: 'Отключенные', 
+      text: 'Disabled',
         fn: (override, index) => {
           const resourceId = override.id || `resource_${index}`;
             return resourcesState[resourceId] === false;}}};
@@ -129,5 +129,5 @@ export const createResourcesSection = (container) => {
 
     Object.values(filters).forEach(({text, fn}) => {
       const btn = createFilterButton(text, fn);
-        if (text === 'Все') {btn.style.background = 'rgba(222, 184, 135, 0.5)'; activeFilterBtn = btn;} filterOptions.appendChild(btn);}); filterRow.appendChild(filterOptions); sortingCard.append(sortingRow, filterRow); container.appendChild(sortingCard);
+        if (text === 'All') {btn.style.background = 'rgba(222, 184, 135, 0.5)'; activeFilterBtn = btn;} filterOptions.appendChild(btn);}); filterRow.appendChild(filterOptions); sortingCard.append(sortingRow, filterRow); container.appendChild(sortingCard);
 };

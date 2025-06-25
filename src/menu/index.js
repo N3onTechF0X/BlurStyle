@@ -51,14 +51,14 @@ const createMenuContainer = () => {
   
   const content = document.createElement('div'); content.className = 'bs-menu-content';
   const sections = {
-    main: {name: 'Главная', create: createMainSection},
-    styling: {name: 'Стилизация', create: createStylingSection},
-    utils: {name: 'Утилиты', create: createUtilsSection},
-    hotkeys: {name: 'Горячие клавиши', create: createHotkeysSection},
-    resources: {name: 'Ресурсы', create: createResourcesSection},
-    settings: {name: 'Настройки', create: createSettingsSection},
-    changelog: {name: 'Чейнджлог', create: createChangelogSection},
-    about: {name: 'О проекте', create: createAboutSection}};
+    main: {name: 'Main', create: createMainSection},
+    styling: {name: 'Stylization', create: createStylingSection},
+    utils: {name: 'Utilities', create: createUtilsSection},
+    hotkeys: {name: 'Hotkeys', create: createHotkeysSection},
+    resources: {name: 'Resources', create: createResourcesSection},
+    settings: {name: 'Settings', create: createSettingsSection},
+    changelog: {name: 'Changelog', create: createChangelogSection},
+    about: {name: 'About project', create: createAboutSection}};
       Object.entries(sections).forEach(([id, section]) => {content.appendChild(createSection(id, section.create));}); menuContainer.appendChild(header); menuContainer.appendChild(content); document.body.appendChild(menuContainer);
 };
 

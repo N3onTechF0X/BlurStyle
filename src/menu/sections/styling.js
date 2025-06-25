@@ -67,68 +67,68 @@ export const createStylingSection = (container) => {
         newInput.addEventListener('input', (e) => {
           const hexColor = e.target.value;
           const rgbaValue = colorValue.startsWith('rgba') ? colorUtils.hexToRgba(hexColor, colorUtils.getRgbaOpacity(colorValue)) : colorUtils.hexToRgb(hexColor); colorText.value = rgbaValue; colorPreview.style.backgroundColor = rgbaValue; updateCSSVar(name, rgbaValue);});
-            newInput.addEventListener('change', () => {showNotification(`${labelText} изменен`, 'success'); document.body.removeChild(newInput); activeColorPicker = null;}); document.body.appendChild(newInput); activeColorPicker = newInput;
+            newInput.addEventListener('change', () => {showNotification(`${labelText} changed`, 'success'); document.body.removeChild(newInput); activeColorPicker = null;}); document.body.appendChild(newInput); activeColorPicker = newInput;
               setTimeout(() => newInput.click(), 50);});
     
     colorText.addEventListener('change', (e) => {
-      const newValue = e.target.value; colorPreview.style.backgroundColor = newValue; updateCSSVar(name, newValue); showNotification(`${labelText} изменен`, 'success');}); inputWrapper.append(colorPreview, colorText); container.append(label, inputWrapper);
+      const newValue = e.target.value; colorPreview.style.backgroundColor = newValue; updateCSSVar(name, newValue); showNotification(`${labelText} changed`, 'success');}); inputWrapper.append(colorPreview, colorText); container.append(label, inputWrapper);
         return container;};
 
-  const colorsCard = createCard('Основные цвета');
+  const colorsCard = createCard('Main colors');
   const colorVars = {
-    'color-primary': ['Основной цвет', getFromLocalStorage('style_color-primary', 'rgba(222, 184, 135, 1)')],
-    'color-white': ['Белый цвет', getFromLocalStorage('style_color-white', 'rgba(255, 255, 255, 1)')], 
-    'color-black': ['Черный цвет', getFromLocalStorage('style_color-black', 'rgba(0, 0, 0, 1)')],
-    'color-red': ['Красный цвет', getFromLocalStorage('style_color-red', 'rgba(255, 0, 0, 1)')],
-    'color-green': ['Зеленый цвет', getFromLocalStorage('style_color-green', 'rgba(60, 179, 113, 1)')],
-    'color-gold': ['Золотой цвет', getFromLocalStorage('style_color-gold', 'rgba(255, 204, 0, 1)')]};
+    'color-primary': ['Main color', getFromLocalStorage('style_color-primary', 'rgba(222, 184, 135, 1)')],
+    'color-white': ['White color', getFromLocalStorage('style_color-white', 'rgba(255, 255, 255, 1)')],
+    'color-black': ['Black color', getFromLocalStorage('style_color-black', 'rgba(0, 0, 0, 1)')],
+    'color-red': ['Red color', getFromLocalStorage('style_color-red', 'rgba(255, 0, 0, 1)')],
+    'color-green': ['Green color', getFromLocalStorage('style_color-green', 'rgba(60, 179, 113, 1)')],
+    'color-gold': ['Gold color', getFromLocalStorage('style_color-gold', 'rgba(255, 204, 0, 1)')]};
       Object.entries(colorVars).forEach(([name, [label, value]]) => {colorsCard.appendChild(createColorInput(label, value, name));});
 
-  const bgCard = createCard('Различные фоны');
+  const bgCard = createCard('Various backgrounds');
   const bgVars = {
-    'bg-transparent': ['Прозрачный фон', getFromLocalStorage('style_bg-transparent', 'rgba(0, 0, 0, 0)')],
-    'bg-transparent-light': ['Легкий черный фон', getFromLocalStorage('style_bg-transparent-light', 'rgba(0, 0, 0, 0.1)')],
-    'bg-transparent-medium': ['Средний черный фон', getFromLocalStorage('style_bg-transparent-medium', 'rgba(0, 0, 0, 0.15)')],
-    'bg-transparent-dark': ['Темный черный фон', getFromLocalStorage('style_bg-transparent-dark', 'rgba(0, 0, 0, 0.2)')],
-    'bg-transparent-darker': ['Очень темный черный фон', getFromLocalStorage('style_bg-transparent-darker', 'rgba(0, 0, 0, 0.3)')],
-    'bg-white-opaque': ['Непрозрачный белый фон', getFromLocalStorage('style_bg-white-opaque', 'rgba(255, 255, 255, 1)')],
-    'bg-white-light': ['Легкий белый фон', getFromLocalStorage('style_bg-white-light', 'rgba(255, 255, 255, 0.1)')],
-    'bg-white-medium': ['Средний белый фон', getFromLocalStorage('style_bg-white-medium', 'rgba(255, 255, 255, 0.2)')],
-    'bg-white-dark': ['Темный белый фон', getFromLocalStorage('style_bg-white-dark', 'rgba(255, 255, 255, 0.3)')],
-    'bg-red-light': ['Легкий красный фон', getFromLocalStorage('style_bg-red-light', 'rgba(255, 0, 0, 0.1)')],
-    'bg-red-medium': ['Средний красный фон', getFromLocalStorage('style_bg-red-medium', 'rgba(255, 0, 0, 0.15)')],
-    'bg-green-light': ['Легкий зеленый фон', getFromLocalStorage('style_bg-green-light', 'rgba(60, 179, 113, 0.1)')],
-    'bg-green-medium': ['Средний зеленый фон', getFromLocalStorage('style_bg-green-medium', 'rgba(60, 179, 113, 0.2)')],
-    'bg-gold-light': ['Легкий золотой фон', getFromLocalStorage('style_bg-gold-light', 'rgba(255, 204, 0, 0.1)')],
-    'bg-gold-medium': ['Средний золотой фон', getFromLocalStorage('style_bg-gold-medium', 'rgba(255, 204, 0, 0.2)')],
-    'bg-gray-light': ['Легкий серый фон', getFromLocalStorage('style_bg-gray-light', 'rgba(128, 128, 128, 0.2)')],
-    'bg-gray-medium': ['Средний серый фон', getFromLocalStorage('style_bg-gray-medium', 'rgba(176, 176, 176, 0.7)')]};
+    'bg-transparent': ['Transparent background', getFromLocalStorage('style_bg-transparent', 'rgba(0, 0, 0, 0)')],
+    'bg-transparent-light': ['Light black background', getFromLocalStorage('style_bg-transparent-light', 'rgba(0, 0, 0, 0.1)')],
+    'bg-transparent-medium': ['Medium black background', getFromLocalStorage('style_bg-transparent-medium', 'rgba(0, 0, 0, 0.15)')],
+    'bg-transparent-dark': ['Dark black background', getFromLocalStorage('style_bg-transparent-dark', 'rgba(0, 0, 0, 0.2)')],
+    'bg-transparent-darker': ['Very dark black background', getFromLocalStorage('style_bg-transparent-darker', 'rgba(0, 0, 0, 0.3)')],
+    'bg-white-opaque': ['Opaque white background', getFromLocalStorage('style_bg-white-opaque', 'rgba(255, 255, 255, 1)')],
+    'bg-white-light': ['Light white background', getFromLocalStorage('style_bg-white-light', 'rgba(255, 255, 255, 0.1)')],
+    'bg-white-medium': ['Medium white background', getFromLocalStorage('style_bg-white-medium', 'rgba(255, 255, 255, 0.2)')],
+    'bg-white-dark': ['Dark white background', getFromLocalStorage('style_bg-white-dark', 'rgba(255, 255, 255, 0.3)')],
+    'bg-red-light': ['Light red background', getFromLocalStorage('style_bg-red-light', 'rgba(255, 0, 0, 0.1)')],
+    'bg-red-medium': ['Medium red background', getFromLocalStorage('style_bg-red-medium', 'rgba(255, 0, 0, 0.15)')],
+    'bg-green-light': ['Light green background', getFromLocalStorage('style_bg-green-light', 'rgba(60, 179, 113, 0.1)')],
+    'bg-green-medium': ['Medium green background', getFromLocalStorage('style_bg-green-medium', 'rgba(60, 179, 113, 0.2)')],
+    'bg-gold-light': ['Light gold background', getFromLocalStorage('style_bg-gold-light', 'rgba(255, 204, 0, 0.1)')],
+    'bg-gold-medium': ['Medium gold background', getFromLocalStorage('style_bg-gold-medium', 'rgba(255, 204, 0, 0.2)')],
+    'bg-gray-light': ['Light gray background', getFromLocalStorage('style_bg-gray-light', 'rgba(128, 128, 128, 0.2)')],
+    'bg-gray-medium': ['Medium gray background', getFromLocalStorage('style_bg-gray-medium', 'rgba(176, 176, 176, 0.7)')]};
       Object.entries(bgVars).forEach(([name, [label, value]]) => {bgCard.appendChild(createColorInput(label, value, name));});
 
-  const borderCard = createCard('Настройки бордеров');
-  const borderWidthSlider = createSlider('Толщина бордера:', parseFloat(getFromLocalStorage('style_border-width', '0.15')), 0.05, 0.5, (value) => updateCSSVar('border-width', `${value}rem`), 'border-width'); borderCard.appendChild(borderWidthSlider);
+  const borderCard = createCard('Border settings');
+  const borderWidthSlider = createSlider('Border thickness:', parseFloat(getFromLocalStorage('style_border-width', '0.15')), 0.05, 0.5, (value) => updateCSSVar('border-width', `${value}rem`), 'border-width'); borderCard.appendChild(borderWidthSlider);
   const borderRadiusVars = {
-    'border-radius-xs': ['Очень малый радиус', parseFloat(getFromLocalStorage('style_border-radius-xs', '0.6'))],
-    'border-radius-sm': ['Малый радиус', parseFloat(getFromLocalStorage('style_border-radius-sm', '0.7'))],
-    'border-radius-md': ['Средний радиус', parseFloat(getFromLocalStorage('style_border-radius-md', '1'))],
-    'border-radius-lg': ['Большой радиус', parseFloat(getFromLocalStorage('style_border-radius-lg', '1.1'))],
-    'border-radius-xl': ['Очень большой радиус', parseFloat(getFromLocalStorage('style_border-radius-xl', '1.2'))],
-    'border-radius-xxl': ['Огромный радиус', parseFloat(getFromLocalStorage('style_border-radius-xxl', '1.5'))],
-    'border-radius-round': ['Скругленный радиус', parseFloat(getFromLocalStorage('style_border-radius-round', '2'))]};
+    'border-radius-xs': ['Very small radius', parseFloat(getFromLocalStorage('style_border-radius-xs', '0.6'))],
+    'border-radius-sm': ['Small radius', parseFloat(getFromLocalStorage('style_border-radius-sm', '0.7'))],
+    'border-radius-md': ['Medium radius', parseFloat(getFromLocalStorage('style_border-radius-md', '1'))],
+    'border-radius-lg': ['Big radius', parseFloat(getFromLocalStorage('style_border-radius-lg', '1.1'))],
+    'border-radius-xl': ['Large radius', parseFloat(getFromLocalStorage('style_border-radius-xl', '1.2'))],
+    'border-radius-xxl': ['Huge radius', parseFloat(getFromLocalStorage('style_border-radius-xxl', '1.5'))],
+    'border-radius-round': ['Rounded Radius', parseFloat(getFromLocalStorage('style_border-radius-round', '2'))]};
       Object.entries(borderRadiusVars).forEach(([name, [label, value]]) => {
         const slider = createSlider(label, value, 0.1, 4, (newValue) => updateCSSVar(name, `${newValue}rem`), name); borderCard.appendChild(slider);});
 
-  const borderColorCard = createCard('Цвета бордеров');
+  const borderColorCard = createCard('Border colors');
   const borderColorVars = {
-    'border-color-none': ['Нет бордера', getFromLocalStorage('style_border-color-none', 'rgba(0, 0, 0, 1)')],
-    'border-color-light': ['Светлый бордер', getFromLocalStorage('style_border-color-light', 'rgba(255, 255, 255, 0.05)')],
-    'border-color-medium': ['Средний бордер', getFromLocalStorage('style_border-color-medium', 'rgba(255, 255, 255, 0.1)')],
-    'border-color-dark': ['Темный бордер', getFromLocalStorage('style_border-color-dark', 'rgba(255, 255, 255, 0.2)')],
-    'border-color-darker': ['Очень темный бордер', getFromLocalStorage('style_border-color-darker', 'rgba(255, 255, 255, 0.3)')],
-    'border-color-red-light': ['Светлый красный бордер', getFromLocalStorage('style_border-color-red-light', 'rgba(255, 0, 0, 0.1)')],
-    'border-color-red-medium': ['Средний красный бордер', getFromLocalStorage('style_border-color-red-medium', 'rgba(255, 0, 0, 0.2)')],
-    'border-color-gold-light': ['Светлый золотой бордер', getFromLocalStorage('style_border-color-gold-light', 'rgba(255, 204, 0, 0.1)')],
-    'border-color-gold-medium': ['Средний золотой бордер', getFromLocalStorage('style_border-color-gold-medium', 'rgba(255, 204, 0, 0.2)')]};
+    'border-color-none': ['No border', getFromLocalStorage('style_border-color-none', 'rgba(0, 0, 0, 1)')],
+    'border-color-light': ['Light border', getFromLocalStorage('style_border-color-light', 'rgba(255, 255, 255, 0.05)')],
+    'border-color-medium': ['Medium border', getFromLocalStorage('style_border-color-medium', 'rgba(255, 255, 255, 0.1)')],
+    'border-color-dark': ['Dark border', getFromLocalStorage('style_border-color-dark', 'rgba(255, 255, 255, 0.2)')],
+    'border-color-darker': ['Very dark border', getFromLocalStorage('style_border-color-darker', 'rgba(255, 255, 255, 0.3)')],
+    'border-color-red-light': ['Light red border', getFromLocalStorage('style_border-color-red-light', 'rgba(255, 0, 0, 0.1)')],
+    'border-color-red-medium': ['Medium Red Border', getFromLocalStorage('style_border-color-red-medium', 'rgba(255, 0, 0, 0.2)')],
+    'border-color-gold-light': ['Light gold border', getFromLocalStorage('style_border-color-gold-light', 'rgba(255, 204, 0, 0.1)')],
+    'border-color-gold-medium': ['Medium gold border', getFromLocalStorage('style_border-color-gold-medium', 'rgba(255, 204, 0, 0.2)')]};
       Object.entries(borderColorVars).forEach(([name, [label, value]]) => {borderColorCard.appendChild(createColorInput(label, value, name));});
 
   const createShadowControl = (name, label, defaultValue) => {
@@ -136,11 +136,11 @@ export const createStylingSection = (container) => {
     const headerDiv = document.createElement('div'); headerDiv.className = 'bs-option';
     const titleLabel = document.createElement('span'); titleLabel.textContent = label;
     const shadowInput = document.createElement('input'); shadowInput.type = 'text'; shadowInput.className = 'bs-input'; shadowInput.value = getFromLocalStorage(`style_${name}`, defaultValue);
-      shadowInput.addEventListener('change', (e) => {updateCSSVar(name, e.target.value); showNotification(`"${label}" изменена`, 'success');}); headerDiv.append(titleLabel, shadowInput); container.appendChild(headerDiv);
+      shadowInput.addEventListener('change', (e) => {updateCSSVar(name, e.target.value); showNotification(`"${label}" changed`, 'success');}); headerDiv.append(titleLabel, shadowInput); container.appendChild(headerDiv);
 
     const previewBox = document.createElement('div');
       previewBox.className = 'bs-shadow-preview';
-      previewBox.textContent = 'Предпросмотр';
+      previewBox.textContent = 'Preview';
       previewBox.style.margin = '10px 0';
       previewBox.style.padding = '15px';
       previewBox.style.marginBottom = '20px';
@@ -159,15 +159,15 @@ export const createStylingSection = (container) => {
         slider.addEventListener('input', (e) => {
           const newValue = parseFloat(e.target.value);
             if (!isNaN(newValue) && newValue >= min && newValue <= max) {valueDisplay.textContent = newValue + unit; updateShadowValue(); clearTimeout(timeout); 
-              timeout = setTimeout(() => {showNotification(`${sliderLabel} изменено на ${newValue}${unit}`, 'info');}, 500);}}); sliderContainer.append(sliderLabel_, slider, valueDisplay);
+              timeout = setTimeout(() => {showNotification(`${sliderLabel} changed to ${newValue}${unit}`, 'info');}, 500);}}); sliderContainer.append(sliderLabel_, slider, valueDisplay);
                 return {sliderContainer, slider, valueDisplay};};
 
-    const hOffsetControl = createShadowSlider('Смещение по X', 'h-offset', -1, 1, 0);
-    const vOffsetControl = createShadowSlider('Смещение по Y', 'v-offset', -1, 1, 0);
-    const blurControl = createShadowSlider('Размытие', 'blur', 0, 2, 0.2);
-    const spreadControl = createShadowSlider('Распространение', 'spread', 0, 0.5, 0.05);
+    const hOffsetControl = createShadowSlider('X offset', 'h-offset', -1, 1, 0);
+    const vOffsetControl = createShadowSlider('Y offset', 'v-offset', -1, 1, 0);
+    const blurControl = createShadowSlider('Blur', 'blur', 0, 2, 0.2);
+    const spreadControl = createShadowSlider('Spreading', 'spread', 0, 0.5, 0.05);
     const colorControl = document.createElement('div'); colorControl.className = 'bs-shadow-color';
-    const colorLabel = document.createElement('span'); colorLabel.textContent = 'Цвет';
+    const colorLabel = document.createElement('span'); colorLabel.textContent = 'Color';
     const colorPreview = document.createElement('div'); colorPreview.className = 'bs-color-preview';
     const opacitySlider = document.createElement('input');
       opacitySlider.type = 'range';
@@ -189,7 +189,7 @@ export const createStylingSection = (container) => {
           colorPicker.addEventListener('input', (e) => {
             const rgba = `rgba(${colorUtils.hexToRgbValues(e.target.value).join(', ')}, ${opacitySlider.value})`; colorPreview.style.backgroundColor = rgba; updateShadowValue();});
         
-        colorPicker.addEventListener('change', () => {showNotification('Цвет тени изменен', 'success'); document.body.removeChild(colorPicker); activeColorPicker = null;}); document.body.appendChild(colorPicker); activeColorPicker = colorPicker;
+        colorPicker.addEventListener('change', () => {showNotification('Shadow color changed', 'success'); document.body.removeChild(colorPicker); activeColorPicker = null;}); document.body.appendChild(colorPicker); activeColorPicker = colorPicker;
           setTimeout(() => colorPicker.click(), 50);});
 
     opacitySlider.addEventListener('input', (e) => {opacityValue.textContent = e.target.value;
@@ -206,48 +206,48 @@ export const createStylingSection = (container) => {
         updateCSSVar(name, shadowValue);}; container.append(hOffsetControl.sliderContainer, vOffsetControl.sliderContainer, blurControl.sliderContainer, spreadControl.sliderContainer, colorControl);
           return container;};
 
-  const shadowCard = createCard('Настройки теней');
+  const shadowCard = createCard('Shadow settings');
   const shadowVars = {
-    'shadow-none': ['Пустая тень', '0rem 0rem 0rem 0rem rgba(0, 0, 0, 0)'],
-    'shadow-light': ['Легкая тень', '0rem 0rem 0.2rem 0.05rem rgba(0, 0, 0, 0.4)'],
-    'shadow-medium': ['Средняя тень', '0rem 0rem 0.5rem 0.05rem rgba(0, 0, 0, 0.55)'],
-    'shadow-dark': ['Темная тень', '0rem 0rem 1rem 0.05rem rgba(0, 0, 0, 0.75)'],
-    'shadow-darker': ['Очень темная тень', '0rem 0rem 1rem 0.1rem rgba(0, 0, 0, 0.75)'],
-    'shadow-darkest': ['Самая темная тень', '0rem 0rem 1rem 0.1rem rgba(0, 0, 0, 0.6)']};
+    'shadow-none': ['Empty shadow', '0rem 0rem 0rem 0rem rgba(0, 0, 0, 0)'],
+    'shadow-light': ['Light shadow', '0rem 0rem 0.2rem 0.05rem rgba(0, 0, 0, 0.4)'],
+    'shadow-medium': ['Middle shadow', '0rem 0rem 0.5rem 0.05rem rgba(0, 0, 0, 0.55)'],
+    'shadow-dark': ['Dark shadow', '0rem 0rem 1rem 0.05rem rgba(0, 0, 0, 0.75)'],
+    'shadow-darker': ['Very dark shadow', '0rem 0rem 1rem 0.1rem rgba(0, 0, 0, 0.75)'],
+    'shadow-darkest': ['Darkest shadow', '0rem 0rem 1rem 0.1rem rgba(0, 0, 0, 0.6)']};
       Object.entries(shadowVars).forEach(([name, [label, defaultValue]]) => {shadowCard.appendChild(createShadowControl(name, label, defaultValue));});
 
-  const insetShadowCard = createCard('Внутренние тени');
+  const insetShadowCard = createCard('Inner shadows');
   const insetShadowVars = {
-    'shadow-inset-light': ['Легкая внутренняя тень', 'inset 0rem 0rem 0.25rem 0.05rem rgba(0, 0, 0, 0.2)'],
-    'shadow-inset-medium': ['Средняя внутренняя тень', 'inset 0rem 0rem 0.25rem 0.05rem rgba(0, 0, 0, 0.3)'],
-    'shadow-inset-dark': ['Темная внутренняя тень', 'inset 0rem 0rem 0.5rem 0.15rem rgba(0, 0, 0, 0.3)'],
-    'shadow-inset-darker': ['Очень темная внутренняя тень', 'inset 0rem 0rem 0.5rem 0.15rem rgba(0, 0, 0, 0.5)']};
+    'shadow-inset-light': ['Light inner shadow', 'inset 0rem 0rem 0.25rem 0.05rem rgba(0, 0, 0, 0.2)'],
+    'shadow-inset-medium': ['Middle inner shadow', 'inset 0rem 0rem 0.25rem 0.05rem rgba(0, 0, 0, 0.3)'],
+    'shadow-inset-dark': ['Dark inner shadow', 'inset 0rem 0rem 0.5rem 0.15rem rgba(0, 0, 0, 0.3)'],
+    'shadow-inset-darker': ['Very dark inner shadow', 'inset 0rem 0rem 0.5rem 0.15rem rgba(0, 0, 0, 0.5)']};
       Object.entries(insetShadowVars).forEach(([name, [label, defaultValue]]) => {insetShadowCard.appendChild(createShadowControl(name, label, defaultValue));});
 
-  const blurCard = createCard('Настройки размытия');
+  const blurCard = createCard('Blur settings');
   const blurVars = {
-    'blur-xs': ['Очень малое размытие', parseFloat(getFromLocalStorage('style_blur-xs', '0.1'))],
-    'blur-sm': ['Малое размытие', parseFloat(getFromLocalStorage('style_blur-sm', '0.2'))],
-    'blur-md': ['Среднее размытие', parseFloat(getFromLocalStorage('style_blur-md', '0.3'))],
-    'blur-lg': ['Большое размытие', parseFloat(getFromLocalStorage('style_blur-lg', '0.5'))],
-    'blur-xl': ['Очень большое размытие', parseFloat(getFromLocalStorage('style_blur-xl', '0.8'))],
-    'blur-xxl': ['Огромное размытие', parseFloat(getFromLocalStorage('style_blur-xxl', '1'))],
-    'blur-xxxl': ['Максимальное размытие', parseFloat(getFromLocalStorage('style_blur-xxxl', '2'))]};
+    'blur-xs': ['Very little blur', parseFloat(getFromLocalStorage('style_blur-xs', '0.1'))],
+    'blur-sm': ['Small blur', parseFloat(getFromLocalStorage('style_blur-sm', '0.2'))],
+    'blur-md': ['Medium Blur', parseFloat(getFromLocalStorage('style_blur-md', '0.3'))],
+    'blur-lg': ['Big blur', parseFloat(getFromLocalStorage('style_blur-lg', '0.5'))],
+    'blur-xl': ['Large blur', parseFloat(getFromLocalStorage('style_blur-xl', '0.8'))],
+    'blur-xxl': ['Huge blur', parseFloat(getFromLocalStorage('style_blur-xxl', '1'))],
+    'blur-xxxl': ['Maximum Blur', parseFloat(getFromLocalStorage('style_blur-xxxl', '2'))]};
       Object.entries(blurVars).forEach(([name, [label, value]]) => {
         let validValue = value;
           if (isNaN(validValue) || validValue < 0) validValue = 0.1;
             const slider = createSlider(label, validValue, 0, 3, (newValue) => updateCSSVar(name, `blur(${newValue}rem)`), name); blurCard.appendChild(slider);});
 
-  const textShadowCard = createCard('Тень для текста');
+  const textShadowCard = createCard('Text shadow');
   const textShadowName = 'text-shadow-gold';
-  const textShadowLabel = 'Золотая тень для текста';
+  const textShadowLabel = 'Golden shadow for text';
   const textShadowDefault = 'rgb(222, 184, 135) 1px 0px, rgb(222, 184, 135) 0px -1px 15px, rgb(222, 184, 135) -1px 0px, rgb(222, 184, 135) 0px 1px';
   const textShadowInput = createInputField(textShadowLabel, getFromLocalStorage(`style_${textShadowName}`, textShadowDefault), (value) => updateCSSVar(textShadowName, value)); textShadowCard.appendChild(textShadowInput);
-  const textShadowColorPicker = createColorInput('Цвет для текстовой тени', 'rgba(222, 184, 135, 1)', 'text-shadow-color'); textShadowCard.appendChild(textShadowColorPicker);
+  const textShadowColorPicker = createColorInput('Text shadow color', 'rgba(222, 184, 135, 1)', 'text-shadow-color'); textShadowCard.appendChild(textShadowColorPicker);
   
   const textPreview = document.createElement('div');
     textPreview.className = 'bs-text-shadow-preview';
-    textPreview.textContent = 'Предпросмотр тени для текста';
+    textPreview.textContent = 'Text shadow preview';
     textPreview.style.textAlign = 'center';
     textPreview.style.margin = '15px 0';
     textPreview.style.padding = '10px';
@@ -257,17 +257,17 @@ export const createStylingSection = (container) => {
     textShadowInput.addEventListener('input', (e) => {textPreview.style.textShadow = e.target.value;});
     textShadowCard.appendChild(textPreview);
   
-  const hoverCard = createCard('Настройки ховера');
+  const hoverCard = createCard('Hover settings');
   const borderHoverSection = document.createElement('div'); borderHoverSection.className = 'bs-shadow-control';
-  const borderHoverTitle = document.createElement('h4'); borderHoverTitle.textContent = 'Эффект границы при наведении'; borderHoverTitle.style.marginTop = '5px'; borderHoverTitle.style.marginBottom = '15px'; borderHoverTitle.style.color = 'rgba(222, 184, 135, 0.9)'; borderHoverSection.appendChild(borderHoverTitle);
-  const borderTransitionDuration = createSlider('Длительность перехода', parseFloat(getFromLocalStorage('style_hover-border-duration', '1')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-border-duration', value); updateHoverPreview();}); borderHoverSection.appendChild(borderTransitionDuration);
-  const transformTransitionDuration = createSlider('Длительность трансформации', parseFloat(getFromLocalStorage('style_hover-transform-duration', '0.7')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-transform-duration', value); updateHoverPreview();}); borderHoverSection.appendChild(transformTransitionDuration);
-  const scaleValue = createSlider('Масштаб при наведении', parseFloat(getFromLocalStorage('style_hover-scale', '0.97')), 0.8, 1.2, (value) => {saveToLocalStorage('style_hover-scale', value); updateHoverPreview();}); borderHoverSection.appendChild(scaleValue);
-  const borderHoverColor = createColorInput('Цвет границы при наведении', getFromLocalStorage('style_hover-border-color', 'rgba(255, 255, 255, 1)'), 'hover-border-color'); borderHoverSection.appendChild(borderHoverColor);
-  const borderHoverWidth = createSlider('Толщина границы при наведении', parseFloat(getFromLocalStorage('style_hover-border-width', '0.15')), 0.05, 0.5, (value) => {saveToLocalStorage('style_hover-border-width', value); updateHoverPreview();}); borderHoverSection.appendChild(borderHoverWidth);
+  const borderHoverTitle = document.createElement('h4'); borderHoverTitle.textContent = 'Border effect on hover'; borderHoverTitle.style.marginTop = '5px'; borderHoverTitle.style.marginBottom = '15px'; borderHoverTitle.style.color = 'rgba(222, 184, 135, 0.9)'; borderHoverSection.appendChild(borderHoverTitle);
+  const borderTransitionDuration = createSlider('Transition duration', parseFloat(getFromLocalStorage('style_hover-border-duration', '1')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-border-duration', value); updateHoverPreview();}); borderHoverSection.appendChild(borderTransitionDuration);
+  const transformTransitionDuration = createSlider('Duration of transformation', parseFloat(getFromLocalStorage('style_hover-transform-duration', '0.7')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-transform-duration', value); updateHoverPreview();}); borderHoverSection.appendChild(transformTransitionDuration);
+  const scaleValue = createSlider('Zoom on hover', parseFloat(getFromLocalStorage('style_hover-scale', '0.97')), 0.8, 1.2, (value) => {saveToLocalStorage('style_hover-scale', value); updateHoverPreview();}); borderHoverSection.appendChild(scaleValue);
+  const borderHoverColor = createColorInput('Border hover color', getFromLocalStorage('style_hover-border-color', 'rgba(255, 255, 255, 1)'), 'hover-border-color'); borderHoverSection.appendChild(borderHoverColor);
+  const borderHoverWidth = createSlider('Border thickness on hover', parseFloat(getFromLocalStorage('style_hover-border-width', '0.15')), 0.05, 0.5, (value) => {saveToLocalStorage('style_hover-border-width', value); updateHoverPreview();}); borderHoverSection.appendChild(borderHoverWidth);
   const hoverPreviewBHV = document.createElement('div');
     hoverPreviewBHV.className = 'bs-hover-preview';
-    hoverPreviewBHV.textContent = 'Наведи для предпросмотра';
+    hoverPreviewBHV.textContent = 'Point to preview';
     hoverPreviewBHV.style.margin = '15px 0';
     hoverPreviewBHV.style.padding = '15px';
     hoverPreviewBHV.style.textAlign = 'center';
@@ -290,17 +290,17 @@ export const createStylingSection = (container) => {
   
   const radiusHoverSection = document.createElement('div'); radiusHoverSection.className = 'bs-shadow-control';
   const radiusHoverTitle = document.createElement('h4');
-    radiusHoverTitle.textContent = 'Эффект радиуса при наведении';
+    radiusHoverTitle.textContent = 'Hover range effect';
     radiusHoverTitle.style.marginTop = '5px';
     radiusHoverTitle.style.marginBottom = '15px';
     radiusHoverTitle.style.color = 'rgba(222, 184, 135, 0.9)';
     radiusHoverSection.appendChild(radiusHoverTitle);
   
-  const radiusTransitionDuration = createSlider('Длительность перехода:', parseFloat(getFromLocalStorage('style_hover-radius-duration', '0.5')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-radius-duration', value); updateRadiusPreview();}); radiusHoverSection.appendChild(radiusTransitionDuration);
-  const radiusHoverValue = createSlider('Радиус при наведении:', parseFloat(getFromLocalStorage('style_hover-radius', '1.1')), 0.5, 2, (value) => {saveToLocalStorage('style_hover-radius', value); updateRadiusPreview();}); radiusHoverSection.appendChild(radiusHoverValue);
+  const radiusTransitionDuration = createSlider('Transition duration:', parseFloat(getFromLocalStorage('style_hover-radius-duration', '0.5')), 0.1, 3, (value) => {saveToLocalStorage('style_hover-radius-duration', value); updateRadiusPreview();}); radiusHoverSection.appendChild(radiusTransitionDuration);
+  const radiusHoverValue = createSlider('Hover Radius:', parseFloat(getFromLocalStorage('style_hover-radius', '1.1')), 0.5, 2, (value) => {saveToLocalStorage('style_hover-radius', value); updateRadiusPreview();}); radiusHoverSection.appendChild(radiusHoverValue);
   const hoverPreviewRHV = document.createElement('div');
     hoverPreviewRHV.className = 'bs-hover-preview';
-    hoverPreviewRHV.textContent = 'Наведи для предпросмотра';
+    hoverPreviewRHV.textContent = 'Point to preview';
     hoverPreviewRHV.style.margin = '15px 0';
     hoverPreviewRHV.style.padding = '15px';
     hoverPreviewRHV.style.textAlign = 'center';
@@ -317,17 +317,17 @@ export const createStylingSection = (container) => {
     hoverPreviewRHV.onmouseout = () => {hoverPreviewRHV.style.transition = `background ${radiusDuration}s, border-radius ${radiusDuration}s`; hoverPreviewRHV.style.borderRadius = '0.6rem';};} 
       updateRadiusPreview(); hoverCard.appendChild(borderHoverSection); hoverCard.appendChild(radiusHoverSection);
   
-  const transformCard = createCard('Настройки 3D трансформации');
+  const transformCard = createCard('3D transformation settings');
   const transformTitle = document.createElement('h4');
     transformTitle.style.marginTop = '5px';
     transformTitle.style.marginBottom = '15px';
     transformTitle.style.color = 'rgba(222, 184, 135, 0.9)';
     transformCard.appendChild(transformTitle);
   
-  const perspectiveValue = createSlider('Перспектива', parseFloat(getFromLocalStorage('style_transform-perspective', '300')), 100, 1000, (value) => {saveToLocalStorage('style_transform-perspective', value); updateTransformPreview();}); transformCard.appendChild(perspectiveValue);
-  const rotationIntensity = createSlider('Интенсивность вращения', parseFloat(getFromLocalStorage('style_transform-rotation', '5')), 1, 20, (value) => {saveToLocalStorage('style_transform-rotation', value); updateTransformPreview();}); transformCard.appendChild(rotationIntensity);
-  const transformShadow = createInputField('Тень при трансформации', getFromLocalStorage('style_transform-shadow', '0rem 0rem 0.7rem 0.05rem rgba(255, 255, 255, 0.75), inset 0rem 0rem 0.5rem 0.15rem rgba(0,0,0,0.3)'), (value) => {saveToLocalStorage('style_transform-shadow', value); updateTransformPreview();}); transformCard.appendChild(transformShadow);
-  const resetTransformShadow = createInputField('Тень при сбросе трансформации', getFromLocalStorage('style_transform-reset-shadow', '0rem 0rem 0.3rem 0.05rem rgba(0, 0, 0, 0.5), inset 0rem 0rem 0.5rem 0.15rem rgba(0,0,0,0.3)'), (value) => {saveToLocalStorage('style_transform-reset-shadow', value);}); transformCard.appendChild(resetTransformShadow);
+  const perspectiveValue = createSlider('Perspective', parseFloat(getFromLocalStorage('style_transform-perspective', '300')), 100, 1000, (value) => {saveToLocalStorage('style_transform-perspective', value); updateTransformPreview();}); transformCard.appendChild(perspectiveValue);
+  const rotationIntensity = createSlider('Rotation intensity', parseFloat(getFromLocalStorage('style_transform-rotation', '5')), 1, 20, (value) => {saveToLocalStorage('style_transform-rotation', value); updateTransformPreview();}); transformCard.appendChild(rotationIntensity);
+  const transformShadow = createInputField('Shadow when transforming', getFromLocalStorage('style_transform-shadow', '0rem 0rem 0.7rem 0.05rem rgba(255, 255, 255, 0.75), inset 0rem 0rem 0.5rem 0.15rem rgba(0,0,0,0.3)'), (value) => {saveToLocalStorage('style_transform-shadow', value); updateTransformPreview();}); transformCard.appendChild(transformShadow);
+  const resetTransformShadow = createInputField('Shadow when resetting transformation', getFromLocalStorage('style_transform-reset-shadow', '0rem 0rem 0.3rem 0.05rem rgba(0, 0, 0, 0.5), inset 0rem 0rem 0.5rem 0.15rem rgba(0,0,0,0.3)'), (value) => {saveToLocalStorage('style_transform-reset-shadow', value);}); transformCard.appendChild(resetTransformShadow);
   const transformPreviewContainer = document.createElement('div');
     transformPreviewContainer.style.position = 'relative';
     transformPreviewContainer.style.height = '150px';
@@ -336,7 +336,7 @@ export const createStylingSection = (container) => {
   
   const transformPreview = document.createElement('div');
     transformPreview.className = 'bs-transform-preview';
-    transformPreview.textContent = 'Перемещай курсор для предпросмотра';
+    transformPreview.textContent = 'Move the cursor to preview';
     transformPreview.style.position = 'absolute';
     transformPreview.style.top = '0';
     transformPreview.style.left = '0';
@@ -373,8 +373,8 @@ export const createStylingSection = (container) => {
         transformPreview.addEventListener('mouseleave', () => {transformPreview.style.transition = 'transform 0.5s ease-in-out, box-shadow 0.7s, border-color 0.7s';transformPreview.style.transform = 'perspective(300px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'; transformPreview.style.boxShadow = resetShadow;});}
           updateTransformPreview();
 
-  const resetStylesButton = createButton('Сбросить стили', () => {
-    const styleKeys = getAllKeysStartingWith('style_'); styleKeys.forEach(key => removeFromLocalStorage(key)); showNotification('Настройки стилей сброшены, перезагрузи страницу', 'success');}, 'bs-btn-danger');
+  const resetStylesButton = createButton('Reset styles', () => {
+    const styleKeys = getAllKeysStartingWith('style_'); styleKeys.forEach(key => removeFromLocalStorage(key)); showNotification('Style settings have been reset, reload the page', 'success');}, 'bs-btn-danger');
   
   resetStylesButton.style.backgroundColor = 'rgba(255, 107, 107, 0.3)';
   resetStylesButton.style.marginTop = '20px';

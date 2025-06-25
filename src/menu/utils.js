@@ -44,13 +44,13 @@ export const navigateBack = () => {
   const prevSection = navigationHistory[navigationHistory.length - 1];
   const sectionTitles = {
     'main': 'BlurStyle',
-    'styling': 'Стилизация',
-    'utils': 'Утилиты',
-    'hotkeys': 'Горячие клавиши',
-    'resources': 'Ресурсы',
-    'settings': 'Настройки',
-    'about': 'О проекте',
-    'changelog': 'Чейнджлог'};
+    'styling': 'Stylization',
+    'utils': 'Utilities',
+    'hotkeys': 'Hotkeys',
+    'resources': 'Resources',
+    'settings': 'Settings',
+    'about': 'About project',
+    'changelog': 'Changelog'};
       const title = sectionTitles[prevSection] || 'BlurStyle'; setActiveSection(prevSection, title);};
 
 export const showNotification = (message, type = 'success') => {
@@ -89,7 +89,7 @@ export const showNotification = (message, type = 'success') => {
       const input = document.createElement('input'); input.type = 'checkbox'; input.checked = isChecked;
         if (key) {input.dataset.key = key;}
           input.addEventListener('change', (e) => {onChange(e.target.checked, key);
-            if (labelText?.trim()) {showNotification(`${labelText} ${e.target.checked ? 'вкл' : 'выкл'}`, 'success');}});
+            if (labelText?.trim()) {showNotification(`${labelText} ${e.target.checked ? 'on' : 'off'}`, 'success');}});
       
       const slider = document.createElement('span'); slider.className = 'bs-toggle-slider'; toggleContainer.append(input, slider); container.append(label, toggleContainer);
         return container;};
@@ -119,7 +119,7 @@ export const createInputField = (labelText, value, onChange, key) => {
   const input = document.createElement('input'); input.type = 'text'; input.className = 'bs-input'; input.value = value; 
     input.addEventListener('change', (e) => {
       onChange(e.target.value, key);
-        if (labelText?.trim()) {showNotification(`${labelText} изменено`, 'success');}}); container.append(label, input);
+        if (labelText?.trim()) {showNotification(`${labelText} changed`, 'success');}}); container.append(label, input);
           return container;};
 
 export const createNumberInput = (labelText, value, onChange, key) => {
@@ -128,7 +128,7 @@ export const createNumberInput = (labelText, value, onChange, key) => {
   const input = document.createElement('input'); input.type = 'number'; input.className = 'bs-input'; input.value = value;
     input.addEventListener('change', (e) => {
       onChange(parseInt(e.target.value), key);
-        if (labelText?.trim()) {showNotification(`${labelText} установлено: ${e.target.value}`, 'success');}}); container.append(label, input);
+        if (labelText?.trim()) {showNotification(`${labelText} set to: ${e.target.value}`, 'success');}}); container.append(label, input);
           return container;};
 
 export const createButton = (text, onClick, className = '') => {
