@@ -16,7 +16,7 @@ BlurStyle — is a project aimed at improving interaction with the game "Tanki O
 ## ![image](https://hierophant.host/logo/download.svg) Browser installation
 
 1. Install/update Tampermonkey extension: [click here](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-2. Install/update the BlurStyle theme script: [click here](https://hierophant.host/blurStyle/browser/blurstyle.user.js) | [mirror](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/browser/blurstyle.user.js)
+2. Install/update the BlurStyle theme script: [click here](https://raw.githubusercontent.com/N3onTechF0X/BlurStyle/refs/heads/main/browser/blurstyle.user.js)
 3. Reload the game tab if it is open
 
 ## ![image](https://hierophant.host/logo/download.svg) Client Installation
@@ -301,7 +301,7 @@ BlurStyle — проект, нацеленный на улучшение вза�
 ## ![image](https://hierophant.host/logo/download.svg) Установка для браузера
 
 1. Установите/обновите расширение Tampermonkey: [жмать сюда](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-2. Установите/обновите скрипт с темой BlurStyle: [жмать сюда](https://hierophant.host/blurStyle/browser/blurstyle.user.js) | [зеркало](https://raw.githubusercontent.com/xeon-git/BlurStyle/refs/heads/main/mirror/browser/blurstyle.user.js)
+2. Установите/обновите скрипт с темой BlurStyle: [жмать сюда](https://raw.githubusercontent.com/N3onTechF0X/BlurStyle/refs/heads/main/browser/blurstyle.user.js)
 3. Перезагрузите вкладку с игрой, если она открыта
 
 ## ![image](https://hierophant.host/logo/download.svg) Установка для клиента
